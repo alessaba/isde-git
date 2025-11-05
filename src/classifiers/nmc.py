@@ -42,6 +42,8 @@ class NMC(object):
         for i, label in enumerate(labels):
             centroids[i, :] = xtr[ytr == label, :].mean(axis=0)  # centr. for class i
 
+        self._centroids = centroids
+        self._class_labels = labels
         return centroids, labels
 
 
