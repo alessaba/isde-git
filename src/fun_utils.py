@@ -1,7 +1,6 @@
 from pandas import read_csv
 import numpy as np
 
-
 def load_data(filename):
     """
     Load data from a csv file
@@ -19,6 +18,7 @@ def load_data(filename):
     y : ndarray
         the labels of each sample.
     """
+    #Nico did this
     data = read_csv(filename)
     z = np.array(data)
     y = z[:, 0]
