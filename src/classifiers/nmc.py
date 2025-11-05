@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.metrics.pairwise import euclidean_distances
+from sklearn.metrics.pairwise import euclidean_d
 
 
 class NMC(object):
@@ -35,7 +35,15 @@ class NMC(object):
         return self._class_labels
 
     def fit(self, xtr, ytr):
-        pass
+        """Estimate the centroid for each class from the training data"""
+        labels = np.unique(ytr)
+        centroids = np.zeros(shape=(labels.size, xtr.shape[1]))
+
+        for i, label in enumerate(labels):
+            centroids[i, :] = xtr[ytr == label, :].mean(axis=0)  # centr. for class i
+
+        return centroids, labels
+
 
     def predict(self, xts):
         pass
